@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import Dropdown from "./containers/Dropdown"
-import Button from "./containers/Button"
+import Dropdown from "./components/Dropdown"
+import Button from "./components/Button"
+import MainComponent from './components/Main';
 class App extends Component {
   render() {
     return (
       <div>
-        <Dropdown/>
-        <Button/>  
+        <MainComponent/>
       </div>
     );
   }
