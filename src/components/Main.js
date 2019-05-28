@@ -1,6 +1,7 @@
 import React from "react";
 import { Row, Col, Input, Tabs, Form } from "antd";
 import Dropdown from "./Dropdown";
+import Combine from "./Combine"
 const MainComponent = () => {
   const TabPane = Tabs.TabPane;
   const { TextArea } = Input;
@@ -16,12 +17,12 @@ const MainComponent = () => {
                 <Row>
                   <Col span={6}>
                     <Form.Item label="Source">
-                      <Dropdown />
+                    <Combine/>        
                     </Form.Item>
                   </Col>
                   <Col span={6} push={6}>
                     <Form.Item label="Record Type">
-                      <Dropdown />
+                      {/* <Dropdown /> */}
                     </Form.Item>
                   </Col>
                 </Row>

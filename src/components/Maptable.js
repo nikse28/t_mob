@@ -1,9 +1,10 @@
-import React from 'react';
+import React from "react";
 
-const mpaTable=()=>{
-    return(
-        <React.Fragment>
-            </React.Fragment>
-    )
-}
+const mapTable = () => {
+  return (
+    <div>
+            
+    </div>
+  );
+};
 export default mapTable;

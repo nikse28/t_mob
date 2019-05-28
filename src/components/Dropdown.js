@@ -29,8 +29,8 @@ const dropdown = () => {
       >
         {sourceObj.map(res => {
           return (
-            <Option value={res.sources} key={res.id}>
-              {res.sources}
+            <Option value={res.city} key={res.id}>
+              {res.city}
             </Option>
           );
         })}

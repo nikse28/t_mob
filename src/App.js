@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Dropdown from "./components/Dropdown"
 import Button from "./components/Button"
 import MainComponent from './components/Main';
-import Combine from './components/combine'
+import Combine from './components/Combine'
 class App extends Component {
   render() {
     return (
