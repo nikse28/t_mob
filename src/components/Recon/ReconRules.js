@@ -12,7 +12,7 @@ class RulesComponent extends Component {
   entityData = entityData;
 
   filterRecord = [];
-  mappingRuleTable = [{ id: "1", "name ": "JOhn" }];
+  mappingRuleTable = [{ id: "", "name ": " " }];
   count = 0;
   constructor(props) {
     super(props);
