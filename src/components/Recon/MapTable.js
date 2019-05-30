@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Table, Input, Button, Popconfirm, Form } from 'antd';
+import { Table,Icon, Menu,Dropdown,Input, Button, Popconfirm, Form ,Select} from 'antd';
 
 const EditableContext = React.createContext();
 
@@ -36,10 +36,19 @@ class EditableCell extends React.Component {
     });
   };
 
+
   renderCell = form => {
+
     this.form = form;
     const { children, dataIndex, record, title } = this.props;
     const { editing } = this.state;
+    const menu = (
+      <Menu>
+        <Menu.Item key="1">1st menu item</Menu.Item>
+        <Menu.Item key="2">2nd menu item</Menu.Item>
+        <Menu.Item key="3">3rd menu item</Menu.Item>
+      </Menu>
+    );
     return editing ? (
       <Form.Item style={{ margin: 0 }}>
         {form.getFieldDecorator(dataIndex, {
@@ -50,7 +59,11 @@ class EditableCell extends React.Component {
             },
           ],
           initialValue: record[dataIndex],
-        })(<Input ref={node => (this.input = node)} onPressEnter={this.save} onBlur={this.save} />)}
+        })(
+          <Dropdown overlay={menu}>
+          <span style={{ userSelect: "none" }}>hover on Me</span>
+        </Dropdown>    
+        )}
       </Form.Item>
     ) : (
       <div
@@ -62,6 +75,7 @@ class EditableCell extends React.Component {
       </div>
     );
   };
+  
 
   render() {
     const {
@@ -91,19 +105,24 @@ class EditableTable extends React.Component {
     super(props);
     this.columns = [
       {
-        title: 'name',
+        title: 'Parameter',
         dataIndex: 'name',
         width: '30%',
         editable: true,
       },
       {
-        title: 'age',
+        title: 'Operator',
         dataIndex: 'age',
         editable: true,
       },
       {
-        title: 'address',
+        title: 'Value',
         dataIndex: 'address',
+        editable: true,
+      },
+      {
+        title: 'Notes',
+        dataIndex: 'Notes',
         editable: true,
       },
       {
@@ -112,7 +131,7 @@ class EditableTable extends React.Component {
         render: (text, record) =>
           this.state.dataSource.length >= 1 ? (
             <Popconfirm title="Sure to delete?" onConfirm={() => this.handleDelete(record.key)}>
-              <a href="javascript:;">Delete</a>
+              <a href="javascript:;"><Icon style={{fontSize:18,color:"black"}} type="delete" /></a>
             </Popconfirm>
           ) : null,
       },
@@ -126,14 +145,9 @@ class EditableTable extends React.Component {
           age: '32',
           address: 'London, Park Lane no. 0',
         },
-        {
-          key: '1',
-          name: 'Edward King 1',
-          age: '32',
-          address: 'London, Park Lane no. 1',
-        },
+        
       ],
-      count: 2,
+      count: 1,
     };
   }
 
