@@ -103,12 +103,14 @@ class EditableCell extends React.Component {
 class EditableTable extends React.Component {
   constructor(props) {
     super(props);
+    console.log('PROP PROP',props)
     this.columns = [
       {
         title: 'Parameter',
         dataIndex: 'name',
         width: '30%',
         editable: true,
+        
       },
       {
         title: 'Operator',
@@ -144,6 +146,7 @@ class EditableTable extends React.Component {
           name: 'Edward King 0',
           age: '32',
           address: 'London, Park Lane no. 0',
+          
         },
         
       ],
@@ -163,6 +166,11 @@ class EditableTable extends React.Component {
       name: `Edward King ${count}`,
       age: 32,
       address: `London, Park Lane no. ${count}`,
+      render:()=>{
+        return(
+          <Select><Option>AHSDasnd</Option> </Select>
+        )
+      }
     };
     this.setState({
       dataSource: [...dataSource, newData],

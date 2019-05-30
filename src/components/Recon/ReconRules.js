@@ -12,6 +12,7 @@ class RulesComponent extends Component {
   entityData = entityData;
 
   filterRecord = [];
+  filterEntityData = [];
   mappingRuleTable = [{ id: "", "name ": " " }];
   count = 0;
   constructor(props) {
@@ -42,7 +43,15 @@ class RulesComponent extends Component {
   /* handle Record Change Dropdown*/
 
   handleRecordChange=(e)=>{
-    console.log('ERTO',e); 
+    console.log('ERTO',e);
+    this.filterEntityData = [];
+    this.entityData.filter(data => {
+      if (e === data.recordId) {
+        console.log('Entity data...',data);
+        this.filterEntityData.push(data);
+      }
+    });
+
   }
 
   render() {
@@ -91,7 +100,7 @@ class RulesComponent extends Component {
         {this.mappingRuleTable.map(res => {
           return(
               <div key={Math.random()}>
-                  <MapTable />
+                  <MapTable parameterData={this.filterEntityData}/>
               </div>
           )
         })}
