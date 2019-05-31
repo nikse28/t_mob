@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Table,Icon, Menu,Dropdown,Input, Button, Popconfirm, Form ,Select} from 'antd';
 
 const EditableContext = React.createContext();
-
+const { Option } = Select;
 const EditableRow = ({ form, index, ...props }) => (
   <EditableContext.Provider value={form}>
     <tr {...props} />
@@ -101,6 +101,7 @@ class EditableCell extends React.Component {
 }
 
 class EditableTable extends React.Component {
+  
   constructor(props) {
     super(props);
     console.log('PROP PROP',props)
@@ -109,33 +110,67 @@ class EditableTable extends React.Component {
         title: 'Parameter',
         dataIndex: 'name',
         width: '30%',
-        editable: true,
         
+        render:()=>{
+          return(
+            <Select style={{width:120}}>
+              <Option value="asd">
+              SAKDL
+              </Option>
+              <Option value="asdasd">
+              QWNKSJA
+              </Option>
+            </Select>
+          )
+        }
       },
       {
         title: 'Operator',
         dataIndex: 'age',
-        editable: true,
+        
+        render:()=>{
+          return(
+            <Select style={{width:120}}>
+              <Option value="asd3">
+              IIASDIO
+              </Option>
+              <Option value="asd12">
+              IDSAJO
+              </Option>
+            </Select>
+          )
+        }
       },
       {
         title: 'Value',
         dataIndex: 'address',
-        editable: true,
+        
+        render:()=>{
+          return(
+            <Input/>
+          )
+        }
       },
       {
         title: 'Notes',
         dataIndex: 'Notes',
-        editable: true,
+        render:()=>{
+          return(
+            <Input/>
+          )
+        }
       },
       {
         title: 'operation',
         dataIndex: 'operation',
-        render: (text, record) =>
-          this.state.dataSource.length >= 1 ? (
-            <Popconfirm title="Sure to delete?" onConfirm={() => this.handleDelete(record.key)}>
-              <a href="javascript:;"><Icon style={{fontSize:18,color:"black"}} type="delete" /></a>
-            </Popconfirm>
-          ) : null,
+        render:()=>{
+          return(
+            <div>
+              <Icon style={{fontSize:18,color:"black"}} type="save" /> |
+              <Icon style={{fontSize:18,color:"black"}} type="delete" />  
+            </div>
+          )
+        }
       },
     ];
 

@@ -4,7 +4,8 @@ import sourceData from "../../data/SourceData";
 import recordData from "../../data/RecordData";
 import entityData from "../../data/EntityData";
 import MapTable from "./MapTable";
-class RulesComponent extends Component {
+
+class ReconRules extends Component {
 
   /* load data from external file */
   sourceData = sourceData;
@@ -17,7 +18,9 @@ class RulesComponent extends Component {
   count = 0;
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      
+    };
   }
 
 
@@ -109,4 +112,4 @@ class RulesComponent extends Component {
   }
 }
 
-export default RulesComponent;
+export default ReconRules;
