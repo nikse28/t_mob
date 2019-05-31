@@ -19,7 +19,6 @@ class ReconRules extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      
     };
   }
 
@@ -45,7 +44,7 @@ class ReconRules extends Component {
 
   /* handle Record Change Dropdown*/
 
-  handleRecordChange=(e)=>{
+  handleRecordChange=(e)=> {
     console.log('ERTO',e);
     this.filterEntityData = [];
     this.entityData.filter(data => {
@@ -102,7 +101,7 @@ class ReconRules extends Component {
         <p><b>Transaction Selection Rule</b></p>
         {this.mappingRuleTable.map(res => {
           return(
-              <div key={Math.random()}>
+            <div key={res.id}>
                   <MapTable parameterData={this.filterEntityData}/>
               </div>
           )

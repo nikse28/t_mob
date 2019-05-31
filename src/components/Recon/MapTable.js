@@ -101,23 +101,37 @@ class EditableCell extends React.Component {
 }
 
 class EditableTable extends React.Component {
-  
+    
+  handleFieldChange(e){
+    console.log('e',e);
+    console.log('e val',e);
+    
+  }
+  onSaveTransactionRow(e,key) {
+    console.log('EE',e.value);
+    console.log('Key',key);
+  }
+  onDeleteTransactionRow(e,keya) {
+    console.log('key',keya);
+    
+    console.log(e)
+    this.setState({})
+  }
   constructor(props) {
     super(props);
-    console.log('PROP PROP',props)
+    console.log('PROP PROP',props);
     this.columns = [
       {
         title: 'Parameter',
         dataIndex: 'name',
         width: '30%',
-        
         render:()=>{
           return(
-            <Select style={{width:120}}>
-              <Option value="asd">
+            <Select style={{width:120}}  onChange={this.handleFieldChange}>
+              <Option value={"val1"}>
               SAKDL
               </Option>
-              <Option value="asdasd">
+              <Option value={'val2'}>
               QWNKSJA
               </Option>
             </Select>
@@ -131,12 +145,11 @@ class EditableTable extends React.Component {
         render:()=>{
           return(
             <Select style={{width:120}}>
-              <Option value="asd3">
-              IIASDIO
-              </Option>
-              <Option value="asd12">
-              IDSAJO
-              </Option>
+              <Option value="EQUAL">{"="}</Option>
+                    <Option value="NOTEQUAL">{"!="}</Option>
+                    <Option value="LTE">{"<="}</Option>
+                    <Option value="GTE">{">="}</Option>
+                    <Option value="LT">{"<"}</Option>
             </Select>
           )
         }
@@ -163,14 +176,16 @@ class EditableTable extends React.Component {
       {
         title: 'operation',
         dataIndex: 'operation',
-        render:()=>{
+        
+        render: (text, record) => {
           return(
             <div>
               <Icon style={{fontSize:18,color:"black"}} type="save" /> |
-              <Icon style={{fontSize:18,color:"black"}} type="delete" />  
+              <Icon style={{fontSize:18,color:"black"}} onClick={e => this.onDeleteTransactionRow(e, record.key)} type="delete"/>
             </div>
           )
         }
+
       },
     ];
 
