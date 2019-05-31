@@ -113,7 +113,6 @@ class EditableTable extends React.Component {
   }
   onDeleteTransactionRow(e,keya) {
     console.log('key',keya);
-    
     console.log(e)
     this.setState({})
   }

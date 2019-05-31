@@ -102,8 +102,8 @@ class ReconRules extends Component {
         {this.mappingRuleTable.map(res => {
           return(
             <div key={res.id}>
-                  <MapTable parameterData={this.filterEntityData}/>
-              </div>
+                <MapTable parameterData={this.filterEntityData}/>
+            </div>
           )
         })}
       </div>
